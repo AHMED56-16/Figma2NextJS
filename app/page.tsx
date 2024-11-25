@@ -1,101 +1,69 @@
+'use client'
+import { useState } from "react";
 import Image from "next/image";
+import social from "@/public/assests/Social Links.png";
+import logo from "@/public/assests/Ddsgnr Library.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons'; 
 
-export default function Home() {
+export default function HomePage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div>
+      <header>
+      <div className="hidden lg:flex w-full h-[54px] pr-16 pl-[62px] bg-[#F7F7F7] items-center justify-between">
+        <div>
+          <span className="w-[205px] h-[21px] font-normal mr-4">Phone Number: 956 742 455 678</span>
+          <span className="w-[149px] h-[21px] font-normal">Email: info@ddsgnr.com</span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div>
+          <Image src={social} alt="social media icons" />
+        </div>
+      </div>
+
+      <div className="w-full h-[72px] pr-16 pl-[62px] bg-[#F7F7F7] border-b-[#676767] flex items-center justify-between lg:pr-4 lg:pl-4">
+        <div className="lg:block xl:flex">
+          <Image src={logo} alt="logo" />
+        </div>
+
+        <div className="hidden lg:flex gap-8 bg-[#FFFFFF] h-[44px] items-center">
+          <a href="/" className="font-medium text-gray-800 hover:text-gray-900">Home</a>
+          <a href="/" className="font-medium text-gray-800 hover:text-gray-900">Courses</a>
+          <a href="/" className="font-medium text-gray-800 hover:text-gray-900">Services</a>
+          <a href="/" className="font-medium text-gray-800 hover:text-gray-900">Achievements</a>
+          <a href="/" className="font-medium text-gray-800 hover:text-gray-900">About Us</a>
+          <a href="/" className="font-medium text-gray-800 hover:text-gray-900">Testimonial</a>
+          <button className="w-[80px] h-[40px] border rounded-[5px] py-2 px-5">Login</button>
+          <button className="bg-black text-white w-[80px] h-[40px] border rounded-[5px] py-2 px-5">Sign Up</button>
+        </div>
+
+        {/* Hamburger Menu */}
+        <div className="lg:hidden flex items-center">
+          <button onClick={toggleMenu} className="text-gray-800">
+            <FontAwesomeIcon icon={faBars} className="h-6 w-6" /> 
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Navigation Menu*/}
+      {isMenuOpen && (
+        <div className="lg:hidden bg-white w-full p-4">
+          <a href="/" className="block text-gray-800 py-2">Home</a>
+          <a href="/" className="block text-gray-800 py-2">Courses</a>
+          <a href="/" className="block text-gray-800 py-2">Services</a>
+          <a href="/" className="block text-gray-800 py-2">Achievements</a>
+          <a href="/" className="block text-gray-800 py-2">About Us</a>
+          <a href="/" className="block text-gray-800 py-2">Testimonial</a>
+          <button className="w-full h-[40px] border rounded-[5px] py-2 px-5 mt-2">Login</button>
+          <button className="bg-black text-white w-full h-[40px] border rounded-[5px] py-2 px-5 mt-2">Sign Up</button>
+        </div>
+      )}
+      </header>
     </div>
   );
 }
